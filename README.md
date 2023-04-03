@@ -1,3 +1,5 @@
+        “ Cleanliness is next to god and clean cities are as heaven” 
+        
         The proverb “ Cleanliness is next to god and clean cities are as heaven” is a proverb 
 that we are listening from our childhood but do we admire that? NO. So to keep the 
 environment clean, we are going to design “CONTACTLESS SMART DUSTBIN”.
