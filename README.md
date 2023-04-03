@@ -13,10 +13,10 @@ of viruses through trash bins will reduce. We are inspired by Swachh Bharat Abhi
 
 ## Authors
 
-- [@PEEYUSH]()
+- [@PEEYUSH](https://www.linkedin.com/in/peeyush-deshpande-237323243)
 
 - [@NILESH](https://www.linkedin.com/in/warke-nilesh-88711a228/)
 
 - [@VAIBHAV]()
 
-- [@AKSHAY]()
+- [@AKSHAY](https://www.linkedin.com/in/akshay-kale-8a597b20b)
