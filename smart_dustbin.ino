@@ -13,27 +13,30 @@ WiFiClientSecure client;
 const char* ssid = "NILESH";
 const char* password = "11112222";
 
-// Telegram Bot
+// Telegram Bot Configuration
 #define BOTtoken "5657684249:AAEA7P5iyZWVrEYRIhK594OkbZH0p8J7HrE"
 #define CHAT_ID "1457594471"
 UniversalTelegramBot bot("5657684249:AAEA7P5iyZWVrEYRIhK594OkbZH0p8J7HrE", client);
 
-// Servo
+// Servo Pin Declaration
 #define servo_pin 13  // Defining servo motor pin
 Servo myservo;        // create servo object to control a servo
 int pos = 0;
 
 
-// Defining pins for ultrasonic sensor
+// pin configuration for ultrasonic sensor
 const int trig_pin = 33;
 const int echo_pin = 32;
 int di;  // Distance given by ultrasonic pin
 long duration;
 
 
+// pin configuration for ir sensor
 #define ir_pin 15  // Setting ir motor pin
 
+
 #define height 20  // Height of the dustbin
+
 
 // Defining flags
 int f1;
@@ -41,7 +44,7 @@ int f2;
 int f3;
 
 
-// Calculating distance using ultrasonic sensor
+// Distance calculation function for ultrasonic sensor
 int distance(int trig, int echo) {
   digitalWrite(trig, LOW);
   delayMicroseconds(1);
@@ -59,20 +62,23 @@ void setup() {
 
   Serial.begin(115200);
 
-  pinMode(13, OUTPUT);  // Setting servo motor pin as output
+  // Setting servo motor pin as output
+  pinMode(13, OUTPUT);  
   digitalWrite(13, HIGH);
 
-  pinMode(trig_pin, OUTPUT);  // Setting ultrasonic sensor pins
+  // Setting ultrasonic sensor pins
+  pinMode(trig_pin, OUTPUT);  
   pinMode(echo_pin, INPUT);
 
-  pinMode(ir_pin, INPUT);  // Pin for IR sensor
+   // Pin for IR sensor
+  pinMode(ir_pin, INPUT); 
 
-  // Initialize the LCD connected
+  // LCD INITIALIZATION
   lcd.begin();
-
-  // Turn on the backlight on LCD.
   lcd.backlight();
-  myservo.attach(servo_pin);  // attaches the servo on servo_pin to the servo object
+  
+  // attaches the servo on servo_pin to the servo object
+  myservo.attach(servo_pin);  
 
   //Initialisation of bot
   client.setCACert(TELEGRAM_CERTIFICATE_ROOT);
@@ -89,6 +95,7 @@ void setup() {
   }
   lcd.clear();
 
+  // Telegram bot activation
   bot.sendMessage("1457594471", "Smart Dustbin Started", "");
   bot.sendMessage("1457594471", "Dustbin is empty", "");
 
@@ -101,11 +108,13 @@ void setup() {
 
 void loop() {
 
+  // opening of lid after detection of presence
   if (digitalRead(ir_pin) == LOW) {
     lcd.clear();
     lcd.print("READY TO PICKUP");
 
-    for (pos = 0; pos <= 180; pos += 1) {
+    for (pos = 0; pos <= 180; pos += 1) 
+    {
       myservo.write(pos);
       if (pos == 180)
         delay(2000);
@@ -117,8 +126,10 @@ void loop() {
     lcd.clear();
   }
 
+  
   // Calculting di from ultrasonic sensor
   di = distance(trig_pin, echo_pin);
+  
   if (di != 0) {
     int a = 0;
     if (di >= height)
