@@ -1,5 +1,5 @@
 
-# SMART DUSTBIN
+# WasteWarden-Alert
 
         “ Cleanliness is next to god and clean cities are as heaven”
 
